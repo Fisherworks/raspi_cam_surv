@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+   <head>
+      <title>{{ title }}</title>
+   </head>
+
+   <body>
+      <h1>List of pics we currently have</h1>
+      <a href="javascript:document.location.reload();"
+      ONMOUSEOVER="window.status='Refresh'; return true"
+      ONMOUSEOUT="window.status='ah... that was good'">
+      Reload Page</p>
+      <p>{% for item in response %}
+      <a href={{ item['url'] }}>{{ item['filename'] }}</a><br/>
+      {% endfor %}</p>
+      <p><a href={{ urlLoad }}>TO THE LOAD PAGE</a></p>
+   </body>
+</html>
