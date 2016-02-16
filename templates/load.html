@@ -5,12 +5,8 @@
 
    <body>
       <h1>System Load Average</h1>
-      <h2>{{ response }}</h2>
-      <p><a href="javascript:document.location.reload();"
-      ONMOUSEOVER="window.status='Refresh'; return true"
-      ONMOUSEOUT="window.status='ah... that was good'">
-      Reload Page
-      </a></p>
+      <p>{{ response }}</p>
+      <p><input type="button" onclick="javascript:document.location.reload();" value="Reload Page" /></p>
       <p><a href={{ urlImg }}><img src={{ urlImg }} alt="IMG_0214_n" width="600" height="400" /></a></p>
       <p><a href={{ urlList }}>TO THE LIST PAGE</a></p>
    </body>

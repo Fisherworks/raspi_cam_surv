@@ -11,7 +11,7 @@ def takePicture(fileName='raspicam.jpg', picQuality='low'):
         camera.led = False
         camera.sharpness = 50
         camera.meter_mode = 'backlit'
-        camera.exposure_compensation = 20
+        camera.exposure_compensation = 10
         if picQuality != 'low':
             camera.resolution = (2592, 1944)
             camera.annotate_text_size = 64

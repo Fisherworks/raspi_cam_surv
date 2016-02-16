@@ -3,7 +3,7 @@ import os
 def listFiles(path):
     fileStr = []
     for root, dirs, files in os.walk( path ):
-        for fn in files:
+        for fn in sorted(files, reverse=True):
             fileStr.append(fn)
     return fileStr
 

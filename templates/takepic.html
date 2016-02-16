@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>{{ title }}</title>
+<script type="text/javascript">
+function loadXMLDoc(picQuality)
+{
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+        {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            var json = JSON.parse(xmlhttp.responseText);
+            document.getElementById("myDiv").innerHTML='拍摄完成'
+            imageHtml = '<img src='+ json.urlImg +' width="600" height="400" />'
+            document.getElementById("camOut").innerHTML=imageHtml
+        }
+        else if (xmlhttp.readyState==1)
+            {
+            document.getElementById("myDiv").innerHTML='正在拍摄…请稍后'
+        }
+    } 
+    xmlhttp.open("POST","{{ urlTakePicApi }}",true);
+    xmlhttp.setRequestHeader("Content-type","application/json");
+    if (picQuality == 'high')
+        {
+        var data = JSON.stringify({"picQuality":"high"});
+    }
+    else if (picQuality == 'low')
+        {
+        var data = JSON.stringify({"picQuality":"low"});
+    }
+    xmlhttp.send(data);
+    }
+</script>
+</head>
+<body>
+
+<h1>拍张照片吧</h1>
+<p><input type="button" onclick="location.href='{{ urlList }}';" value="转到已拍摄列表" /></p>
+<p>
+<button type="button" onclick="loadXMLDoc('high')">拍高清</button>
+<button type="button" onclick="loadXMLDoc('low')">拍普清</button></p>
+<p><div id="myDiv">可以拍照</div></p>
+<p><div id="camOut"></div></p>
+ 
+</body>
+</html>
+
