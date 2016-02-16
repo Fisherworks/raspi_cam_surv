@@ -19,7 +19,7 @@ function loadXMLDoc(picQuality)
             {
             var json = JSON.parse(xmlhttp.responseText);
             document.getElementById("myDiv").innerHTML='拍摄完成'
-            imageHtml = '<img src='+ json.urlImg +' width="600" height="400" />'
+            imageHtml = '<a href=' + json.urlImg + '><img src='+ json.urlImg +' width="600" height="400" /></a>'
             document.getElementById("camOut").innerHTML=imageHtml
         }
         else if (xmlhttp.readyState==1)

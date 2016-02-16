@@ -8,8 +8,8 @@ app = Flask(__name__, static_url_path='/static')
 auth = HTTPBasicAuth()
 
 users = {
-    "user1": "pass1",
-    "user2": "pass2",
+    "usr1": "pass1",
+    "usr2": "pass2",
 }
 
 @auth.get_password
