@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-   <head>
-      <title>{{ title }}</title>
-   </head>
-
-   <body>
-      <h1>System Load Average</h1>
-      <p>{{ response }}</p>
-      <p><input type="button" onclick="javascript:document.location.reload();" value="Reload Page" /></p>
-      <p><a href={{ urlImg }}><img src={{ urlImg }} alt="IMG_0214_n" width="600" height="400" /></a></p>
-      <p><a href={{ urlList }}>TO THE LIST PAGE</a></p>
-   </body>
-</html>
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+{% endblock %}
+{% block body_block %}
+  <h1>Obsoleted picts taking page</h1>
+  <p>{{ response }}</p>
+    <p><input type="button" onclick="javascript:document.location.reload();" value="Reload Page" /></p>
+    <p><a href={{ urlImg }}><img src={{ urlImg }} alt="IMG_0214_n" width="600" height="400" /></a></p>
+    <p><a href={{ urlList }}>TO THE LIST PAGE</a></p>
+{% endblock %}

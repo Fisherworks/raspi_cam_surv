@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <title>树莓枝-{% block title %}RaspBerryPi monitoring system{% endblock %}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href={{ url_for('static', filename='style/bootstrap.min.css') }}>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href={{ url_for('hello') }}>主页</a>
+    </div>
+    <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+                <li><a href={{ url_for('list') }}>已拍列表</a></li>
+                <li><a href={{ url_for('takePic') }}>拍张新的</a></li>
+
+              </ul>
+        </div>
+  </div>
+</nav>
+
+<div class= "container-fluid">
+            <div>
+                {% block body_block %}{% endblock %}
+            </div>
+        </div>
+      </div>
+</div>
+
+<style>
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+</style>
+
+
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Fisherworks.cn - All rights reserved.</p>
+      </div>
+    </footer>
+
+<script src={{ url_for('static', filename='style/jquery.min.js') }}></script>
+<script src={{ url_for('static', filename='style/bootstrap.min.js') }}></script>
+
+</body>
+</html>

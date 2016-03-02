@@ -31,6 +31,8 @@ def hello():
         'title' : 'HELLO!',
         'time': timeString,
         'rootdir': rootDir,
+        'urlTakePic': url_for('takePic'),
+        'urlList': url_for('list'),
         }
     return render_template('main.html', **templateData)
 

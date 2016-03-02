@@ -1,6 +1,3 @@
-<html>
-<head>
-<title>{{ title }}</title>
 <script type="text/javascript">
 function loadXMLDoc(picQuality)
 {
@@ -19,14 +16,14 @@ function loadXMLDoc(picQuality)
             {
             var json = JSON.parse(xmlhttp.responseText);
             document.getElementById("myDiv").innerHTML='拍摄完成'
-            imageHtml = '<a href=' + json.urlImg + '><img src='+ json.urlImg +' width="600" height="400" /></a>'
+            imageHtml = '<a href=' + json.urlImg + '><img src='+ json.urlImg +' class="img-responsive" alt="PicTaken"></a>'
             document.getElementById("camOut").innerHTML=imageHtml
         }
         else if (xmlhttp.readyState==1)
             {
             document.getElementById("myDiv").innerHTML='正在拍摄…请稍后'
         }
-    } 
+    }
     xmlhttp.open("POST","{{ urlTakePicApi }}",true);
     xmlhttp.setRequestHeader("Content-type","application/json");
     if (picQuality == 'high')
@@ -40,17 +37,18 @@ function loadXMLDoc(picQuality)
     xmlhttp.send(data);
     }
 </script>
-</head>
-<body>
 
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+{% endblock %}
+{% block body_block %}
 <h1>拍张照片吧</h1>
-<p><input type="button" onclick="location.href='{{ urlList }}';" value="转到已拍摄列表" /></p>
 <p>
-<button type="button" onclick="loadXMLDoc('high')">拍高清</button>
-<button type="button" onclick="loadXMLDoc('low')">拍普清</button></p>
+<button type="button" class="btn btn-primary" onclick="loadXMLDoc('high')">拍高清</button>
+<button type="button" class="btn btn-primary" onclick="loadXMLDoc('low')">拍普清</button></p>
 <p><div id="myDiv">可以拍照</div></p>
-<p><div id="camOut"></div></p>
- 
-</body>
-</html>
+<p id="camOut"></p>
+{% endblock %}
+
 

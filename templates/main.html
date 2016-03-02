@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-   <head>
-      <title>{{ title }}</title>
-   </head>
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+{% endblock %}
+{% block body_block %}
+  <h1>欢迎使用树莓派拍照系统</h1>
+  <p>当前时间 {{ time }}</p>
+  <p>服务运行目录 {{ rootdir }}</p>
+{% endblock %}
 
-   <body>
-      <h1>Hello, World!</h1>
-      <h2>The date and time on the server is: {{ time }}</h2>
-      <p>{{ rootdir }}</p>
-   </body>
-</html>

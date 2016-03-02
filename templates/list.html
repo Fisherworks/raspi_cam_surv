@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-   <head>
-      <title>{{ title }}</title>
-   </head>
-
-   <body>
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+{% endblock %}
+{% block body_block %}
       <h1>目前已拍摄图像</h1>
       <p>
-      <input type="button" onclick="javascript:document.location.reload();" value="重新载入" />
-      <input type="button" onclick="location.href='{{ urlTakePic }}';" value="转到拍摄" />
+      <input type="button" class="btn btn-primary" onclick="javascript:document.location.reload();" value="重新载入" />
       </p>
       <p>{% for item in response %}
       <a href={{ item['url'] }}>{{ item['filename'] }}</a><br/>
       {% endfor %}</p>
-   </body>
-</html>
+{% endblock %}
+
+
